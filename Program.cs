@@ -10,33 +10,34 @@ namespace Star_Triangle
     {
         static void Main(string[] args)
         {
-            int countSpace = 0;
-            int countStares = 0;
+            int stars = 1;
+            int space = 0;
+            bool flag = true;
             Console.WriteLine("Enter odd number of lines:");
-            int numberLines = int.Parse(Console.ReadLine());
-            int halfNumberLines = numberLines /2+1;
-            for (int i=1; i<=numberLines;i++)
+            int lines = int.Parse(Console.ReadLine());
+            for (int i=1; i<= lines;i++)
             {
-                int count_halfNumberLines = halfNumberLines;
-                countSpace = i - halfNumberLines;
-
-                if (countSpace < 0)
-                    countSpace *= -1;
-                for (int j = 0; j < countSpace; j++)
-                    Console.Write(" ");
-                countStares = count_halfNumberLines - countSpace;
-                for (int k = 0; k<countStares; k++)
-                        Console.WriteLine("*");
-
-                Console.WriteLine();
-                if (count_halfNumberLines == numberLines)
-                    count_halfNumberLines--;
+                    space = (lines - stars)/2;
+                    if (space < 0)
+                        space *= -1;
+                    for (int k = 0; k < space; k++)
+                        Console.Write(" ");
+                    for (int j = 0; j < stars; j++)
+                        Console.Write("*");
+                    Console.WriteLine();
+                if (stars != lines && flag == true)
+                    stars += 2;
                 else
-                    count_halfNumberLines++;  
+                {
+                    stars -= 2;
+                    flag = false;
+                }
+                    
             }
 
             Console.ReadKey();
 
         }
+    
     }
 }
